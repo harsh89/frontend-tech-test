@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "npm run server & npm run dev:watch &  npm run webdevserver",
+    "server": "nodemon ./server/index.js",
+    "webdevserver": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production",
+    "dev": "webpack --env.dev",
+    "dev:watch": "webpack --env.dev -w"
   },
   "keywords": [
     "test",
@@ -14,6 +19,40 @@
   "author": "spartans",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.5",
+    "css-loader": "^1.0.0",
+    "express": "^4.16.4",
+    "file-system": "^2.2.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "ignore-loader": "^0.1.2",
+    "jquery": "^3.3.1",
+    "lodash.debounce": "^4.0.8",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-fetch": "^2.0.0",
+    "nodemon": "^1.18.10",
+    "object-getvalue": "^1.1.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.1",
+    "react-toastify": "^4.5.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack-dev-server": "^3.2.0"
   }
 }
