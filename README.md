@@ -1,7 +1,7 @@
 # How to start:
 Use npm install command to install node modules. 
 Use "NPM run start" command for starting the webdevserver and node server.
-For initial data use tasks.json in directory.
+For initial data use tasks.json in directory. Later on the tasks.json is moved to server build folder for further usage. This file being used as a DB for the sake of application.
 
 # Inclusions
 * React 16.7 - Done
