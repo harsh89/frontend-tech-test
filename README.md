@@ -1,6 +1,7 @@
 # How to start:
 Use npm install command to install node modules. 
 Use "NPM run start" command for starting the webdevserver and node server.
+For initial data use tasks.json in directory.
 
 # Inclusions
 * React 16.7 - Done
