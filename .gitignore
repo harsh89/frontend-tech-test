@@ -1,4 +1,6 @@
 node_modules/
+public/
+server-dist/
 *~
 #*
 .vs_code/
