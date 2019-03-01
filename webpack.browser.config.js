@@ -4,6 +4,7 @@ const {
 } = path;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+var WebpackChunkHash = require('webpack-chunk-hash');
 
 module.exports = (env = {}) => {
   const IS_PRODUCTION_MODE = !env.dev;
@@ -11,8 +12,8 @@ module.exports = (env = {}) => {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'public'),
-      filename: '[name].bundle.js',
-      chunkFilename: '[name].bundle.js'
+      filename: '[name].[chunkhash].bundle.js',
+      chunkFilename: '[name].[chunkhash].bundle.js'
     },
     devtool: 'inline-source-map',
     optimization: {
@@ -57,11 +58,11 @@ module.exports = (env = {}) => {
         filename: "./index.html"
       }),
       new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: '[name].css',
-        chunkFilename: '[id].css'
-      })
+
+        filename: '[name].[chunkhash].css',
+        chunkFilename: '[id].[chunkhash].css'
+      }),
+      new WebpackChunkHash({algorithm: 'md5'})
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.scss'],
