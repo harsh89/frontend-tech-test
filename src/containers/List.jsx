@@ -25,6 +25,12 @@ class List extends Component {
     this.props.deleteItem(id);
   }, 100)
 
+  invokeToast = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_CENTER
+    })
+  }
+
   render() {
     console.log(this.props.todoList);
     const todoList = this.props.todoList.tasks || [];
@@ -33,10 +39,10 @@ class List extends Component {
         {todoList.map(item => {
           return <ListItem item={item} onItemClick={this.onListItemClick} onCloseClick={this.onCloseClick}></ListItem>
         })}
-        {this.props.todoList.isErrorStateActive ? toast.error(this.props.todoList.message, {
-          position: toast.POSITION.TOP_CENTER
-        }) : ''}
+        {this.props.todoList.isErrorStateActive && this.invokeToast(this.props.todoList.message)}
+        <div>
         <ToastContainer />
+        </div>
       </article>
     );
   }
