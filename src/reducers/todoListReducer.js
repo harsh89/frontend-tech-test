@@ -10,7 +10,7 @@ const todoList = (state = initialState, action) => {
       return {
         ...state,
         tasks: action.payload,
-        message: '',
+        message: 'Item Added',
         isErrorStateActive: false
       }
     case 'GET_INITIAL':
@@ -31,7 +31,7 @@ const todoList = (state = initialState, action) => {
       return {
         ...state,
         tasks: action.payload,
-        message: '',
+        message: 'Item Successfully deleted',
         isErrorStateActive: false
       }
     case 'ERROR_STATE':
