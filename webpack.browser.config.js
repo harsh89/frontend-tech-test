@@ -12,8 +12,8 @@ module.exports = (env = {}) => {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'public'),
-      filename: '[name].[chunkhash].bundle.js',
-      chunkFilename: '[name].[chunkhash].bundle.js'
+      filename: '[name].[hash].bundle.js',
+      chunkFilename: '[name].[hash].bundle.js'
     },
     devtool: 'inline-source-map',
     optimization: {
@@ -59,8 +59,8 @@ module.exports = (env = {}) => {
       }),
       new MiniCssExtractPlugin({
 
-        filename: '[name].[chunkhash].css',
-        chunkFilename: '[id].[chunkhash].css'
+        filename: '[name].[hash].css',
+        chunkFilename: '[id].[hash].css'
       }),
       new WebpackChunkHash({algorithm: 'md5'})
     ],

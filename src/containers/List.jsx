@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ListItem from '../components/ListItem';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllTodos, toggleItem, deleteItem } from '../actions/index';
@@ -7,11 +6,6 @@ import debounce from 'lodash.debounce';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loadable from 'react-loadable';
-
-// const ListItem = Loadable({
-//   loader: () => import('../components/ListItem'),
-//   loading: Loading,
-// });
 
 const ListItem = Loadable({
   loader: () => import(/* webpackChunkName: 'listitem' */ '../components/ListItem'),
