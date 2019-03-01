@@ -11,12 +11,17 @@ module.exports = (env = {}) => {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'public'),
-      filename: 'bundle.js'
-    },
-    optimization: {
-      minimize: IS_PRODUCTION_MODE
+      filename: '[name].bundle.js',
+      chunkFilename: '[name].bundle.js'
     },
     devtool: 'inline-source-map',
+    optimization: {
+      minimize: IS_PRODUCTION_MODE,
+      splitChunks: {
+        // include all types of chunks
+        chunks: 'all'
+      }
+    },
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       hot: true,

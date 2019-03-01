@@ -14,6 +14,7 @@ Error handling: Debounce is not used to everywhere to show for error handling im
 * SASS used for styling.
 * Responsive and simple intuitive design.
 * Server response error handling
+* Webpack chunking and react-loadable implementation complete.
 
 # Pending
 * unit-tests for the UI 
