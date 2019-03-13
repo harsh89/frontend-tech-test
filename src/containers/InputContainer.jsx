@@ -3,6 +3,7 @@ import Loadable from 'react-loadable';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/index';
+import debounce from 'lodash.debounce';
 
 const InputComp = Loadable({
   loader: () => import(/* webpackChunkName: 'inputcomp' */ '../components/InputComp'),
@@ -16,12 +17,17 @@ class InputContainer extends Component {
     super(props);
   }
 
-  onInputClick = (event) => {
-    console.log('input entered');
+  componentDidMount() {
+    this.inpDebounceClick =  debounce((event) => {
+      if (event.keyCode === 13) {
+        this.props.addItem(event.target.value);
+      }
+    }, 400)
+  }
 
-    if (event.keyCode === 13) {
-      this.props.addItem(event.currentTarget.value);
-    }
+  onInputClick = (event) => {
+    event.persist();
+    this.inpDebounceClick(event);
   }
 
 	render() {
